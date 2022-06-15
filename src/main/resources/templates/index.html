@@ -34,6 +34,7 @@
             <th th:text="${planchuela.autorUltimo}"></th>
             <th><button>Agregar</button></th>
             <th><button>Consumir</button></th>
+            <a th:href="@{/editarProducto/__${planchuela.codigo}__}" >Modificar</a>
         </tbody>
         <tbody th:each="angulo: ${angulos}">
         <th th:text="${angulo.codigo}"></th>
@@ -45,6 +46,7 @@
         <th th:text="${angulo.autorUltimo}"></th>
         <th><button>Agregar</button></th>
         <th><button>Consumir</button></th>
+        <a th:href="@{/editarProducto/__${angulo.codigo}__}" >Modificar</a>
         </tbody>
         <tbody th:each="redondo: ${redondos}">
         <th th:text="${redondo.codigo}"></th>
@@ -56,6 +58,7 @@
         <th th:text="${redondo.autorUltimo}"></th>
         <th><button>Agregar</button></th>
         <th><button>Consumir</button></th>
+        <a th:href="@{/editarProducto/__${redondo.codigo}__}" >Modificar</a>
         </tbody>
         <tbody th:each="upn: ${upns}">
         <th th:text="${upn.codigo}"></th>
@@ -67,6 +70,7 @@
         <th th:text="${upn.autorUltimo}"></th>
         <th><button>Agregar</button></th>
         <th><button>Consumir</button></th>
+        <a th:href="@{/editarProducto/__${upn.codigo}__}" >Modificar</a>
         </tbody>
         <tbody th:each="canio: ${canios}">
         <th th:text="${canio.codigo}"></th>
@@ -78,6 +82,7 @@
         <th th:text="${canio.autorUltimo}"></th>
         <th><button>Agregar</button></th>
         <th><button>Consumir</button></th>
+        <a th:href="@{/editarProducto/__${canio.codigo}__}" >Modificar</a>
         </tbody>
         <tbody th:each="perfilT: ${perfilTs}">
         <th th:text="${perfilT.codigo}"></th>
@@ -89,8 +94,8 @@
         <th th:text="${perfilT.autorUltimo}"></th>
         <th><button>Agregar</button></th>
         <th><button>Consumir</button></th>
+        <a th:href="@{/editarProducto/__${perfilT.codigo}__}" >Modificar</a>
         </tbody>
-    <h2>prueba git</h2>
     </table>
 </section>
 </body>

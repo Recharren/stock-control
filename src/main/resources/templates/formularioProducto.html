@@ -8,13 +8,16 @@
     <h1>Formulario para crear Producto</h1>
     <form action="/crearProducto" method="post">
         <label for="nombre">Nombre</label>
-        <input type="text" name="nombre"><br>
+        <input type="text" name="nombre" required><br>
+
         <label for="categoria">Categoría</label>
-        <input type="number" name="categoria"><br>
+        <input type="number" name="categoria" required><br>
+
         <label for="codigo">Código</label>
-        <input type="number" name="codigo"><br>
+        <input type="number" name="codigo" required><br>
+
         <label for="precio">Precio</label>
-        <input type="number" name="precio"><br>
+        <input type="number" name="precio" required><br>
 
         <button type="submit">Guardar</button>
     </form>

@@ -12,7 +12,7 @@ public class PortalControlador {
     @Autowired
     ProductoServicio productoServicio;
 
-    @GetMapping("/")
+    @GetMapping("/inicio")
     public String index(ModelMap modelo){
         modelo.put("planchuelas", productoServicio.listadoProductos(1));
         modelo.put("angulos", productoServicio.listadoProductos(2));
@@ -20,7 +20,7 @@ public class PortalControlador {
         modelo.put("upns", productoServicio.listadoProductos(4));
         modelo.put("canios", productoServicio.listadoProductos(5));
         modelo.put("perfilTs", productoServicio.listadoProductos(6));
-        return "index.html";
+        return "inicio.html";
     }
 
     @GetMapping("/formularioProducto")

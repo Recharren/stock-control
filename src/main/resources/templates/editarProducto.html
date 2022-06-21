@@ -8,6 +8,38 @@
     <link rel="stylesheet" href="/normalize.css">
 </head>
 <body>
+    <h1>Formulario para editar producto</h1>
+    <form action="/editarProducto" method="post">
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" th:value="${producto.nombre}" required><br>
+
+        <label for="categoria">Categoría</label>
+        <input type="number" name="categoria" th:value="${producto.categoria}" required><br>
+
+        <label for="codigo">Código</label>
+        <input type="number" name="codigo" th:value="${producto.codigo}" required><br>
+
+        <label for="precio">Precio</label>
+        <input type="number" name="precio" th:value="${producto.precio}" required><br>
+
+        <label for="sobrante">Sobrante</label>
+        <input type="text" name="sobrante" th:value="${producto.sobrante}" required><br>
+
+        <label for="cantIngresada">Cantidad Ingresada</label>
+        <input type="text" name="cantIngresada" th:value="${producto.cantIngresada}" required><br>
+
+        <label for="autorUltimo">Ultimo autor</label>
+        <input type="text" name="autorUltimo" th:value="${producto.autorUltimo}" required><br>
+
+        <label for="stock">Stock</label>
+        <input type="text" name="stock" th:value="${producto.stock}" required><br>
+
+        <label for="ultModif">Ultima fecha de modificacion</label>
+        <input type="date" pattern="dd-MM-yyyy" name="ultModif" th:value="${producto.ultModif}" required>
+
+
+        <button type="submit">Guardar</button>
+    </form>
 
 </body>
 </html>

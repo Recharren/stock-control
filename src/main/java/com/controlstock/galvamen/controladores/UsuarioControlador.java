@@ -18,13 +18,15 @@ public class UsuarioControlador {
     UsuarioServicio usuarioServicio;
 
     @GetMapping("/registroUsuario")
-    public String registroUsuario(ModelMap modelo){
+    public String registroUsuario(ModelMap modelo) {
         return "registroUsuario.html";
     }
 
     @PostMapping("/registrarUsuario")
     public String registrarUsuario(ModelMap modelo, @RequestParam String nombre, @RequestParam String apellido, @RequestParam String email,
             @RequestParam String clave,@RequestParam String repetirClave, @RequestParam Integer rol){
+
         usuarioServicio.registrarUsuario(nombre, apellido, email, clave,repetirClave, rol);
+
     }
 }

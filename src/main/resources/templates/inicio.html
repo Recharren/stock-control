@@ -4,141 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Control de Stock</title>
-    <link rel="stylesheet" href="/normalize.css">
-    <link rel="stylesheet" href="/inicio.css">
-    <!-- <link rel="stylesheet" href="../static/normalize.css">
-    <link rel="stylesheet" href="../static/index.css"> -->
+    <title>Fabrica</title>
 </head>
 <body>
-<header>
-    <h1>Sistema de control de stock - GALVAMEN S.A.</h1>
-    <input type="number" id="idSesion" th:if="${session.usuariosession}!=null" th:value="${session.usuariosession.id}" hidden>
-    <!-- <div class="log">
-        <img th:if="${session.usuariosession.foto}!=null" id="imgUsuario"  th:src="${'/foto/usuario/'+session.usuariosession.id}" alt="usuario">
-        <img th:if="${session.usuariosession.foto}==null" id="imgUsuario"  src="/img/usuario.png" alt="usuario">
-        <h2 th:if="${session.usuariosession}!=null"th:text="${session.usuariosession.nombre}"></h2><br>
-        <input type="number" id="idSesion" th:if="${session.usuariosession}!=null" th:value="${session.usuariosession.id}" hidden>
-        <a class="logout" th:href="@{/logout}" th:unless="${session.usuariosession}==null">Logout</a>
-    </div> -->
+    <h1>FABRICA</h1>
+    <a href="/moduloStock">Modulo Stock</a><br>
+    <a href="/moduloMantenimiento">Modulo mantenimiento</a>
 
-</header>
-<a href="/formularioProducto">Crear Producto nuevo</a><br>
-<a href="/usuario/registroUsuario">Registrar usuario</a>
-<section>
-    <table id="tablaPlanch">
-        <thead>
-            <th>Código</th>
-            <th>Nombre</th>
-            <th>Stock</th>
-            <th>Sobrante</th>
-            <th>Fecha actualiz.</th>
-            <th>Cant. modif.</th>
-            <th>Autor modif.</th>
-        </thead>
-        <tbody th:each="planchuela: ${planchuelas}">
-            <th th:text="${planchuela.codigo}" th:value="${planchuela.codigo}" class="codigoProducto"></th>
-            <th th:text="${planchuela.nombre}" th:value="${planchuela.nombre}" class="nombreProducto"></th>
-            <th th:text="${planchuela.stock}"></th>
-            <th th:text="${planchuela.sobrante}"></th>
-            <th th:text="${planchuela.ultModif}"></th>
-            <th th:text="${planchuela.cantIngresada}"></th>
-            <th th:text="${planchuela.autorUltimo}"></th>
-            <th><button class="btnAgregar">Agregar</button></th>
-            <th><button class="btnConsumir">Consumir</button></th>
-            <th><a th:href="@{/editarProducto/__${planchuela.codigo}__}" >Modificar</a></th>
-            
-        </tbody>
-        <tbody th:each="angulo: ${angulos}">
-        <th th:text="${angulo.codigo}" th:value="${angulo.codigo}" class="codigoProducto"></th>
-        <th th:text="${angulo.nombre}" th:value="${angulo.nombre}" class="nombreProducto"></th>
-        <th th:text="${angulo.stock}"></th>
-        <th th:text="${angulo.sobrante}"></th>
-        <th th:text="${angulo.ultModif}"></th>
-        <th th:text="${angulo.cantIngresada}"></th>
-        <th th:text="${angulo.autorUltimo}"></th>
-        <th><button class="btnAgregar">Agregar</button></th>
-        <th><button class="btnConsumir">Consumir</button></th>
-        <th><a th:href="@{/editarProducto/__${angulo.codigo}__}" >Modificar</a></th>
-        
-        </tbody>
-        <tbody th:each="redondo: ${redondos}">
-        <th th:text="${redondo.codigo}" th:value="${redondo.codigo}" class="codigoProducto"></th>
-        <th th:text="${redondo.nombre}" th:value="${redondo.nombre}" class="nombreProducto"></th>
-        <th th:text="${redondo.stock}"></th>
-        <th th:text="${redondo.sobrante}"></th>
-        <th th:text="${redondo.ultModif}"></th>
-        <th th:text="${redondo.cantIngresada}"></th>
-        <th th:text="${redondo.autorUltimo}"></th>
-        <th><button class="btnAgregar">Agregar</button></th>
-        <th><button class="btnConsumir">Consumir</button></th>
-        <th><a th:href="@{/editarProducto/__${redondo.codigo}__}" >Modificar</a></th>
-        
-        </tbody>
-        <tbody th:each="upn: ${upns}">
-        <th th:text="${upn.codigo}" th:value="${upn.codigo}" class="codigoProducto"></th>
-        <th th:text="${upn.nombre}" th:value="${upn.nombre}" class="nombreProducto"></th>
-        <th th:text="${upn.stock}"></th>
-        <th th:text="${upn.sobrante}"></th>
-        <th th:text="${upn.ultModif}"></th>
-        <th th:text="${upn.cantIngresada}"></th>
-        <th th:text="${upn.autorUltimo}"></th>
-        <th><button class="btnAgregar">Agregar</button></th>
-        <th><button class="btnConsumir">Consumir</button></th>
-        <th><a th:href="@{/editarProducto/__${upn.codigo}__}" >Modificar</a></th>
-        
-        </tbody>
-        <tbody th:each="canio: ${canios}">
-        <th th:text="${canio.codigo}" th:value="${canio.codigo}" class="codigoProducto"></th>
-        <th th:text="${canio.nombre}" th:value="${canio.nombre}" class="nombreProducto"></th>
-        <th th:text="${canio.stock}"></th>
-        <th th:text="${canio.sobrante}"></th>
-        <th th:text="${canio.ultModif}"></th>
-        <th th:text="${canio.cantIngresada}"></th>
-        <th th:text="${canio.autorUltimo}"></th>
-        <th><button class="btnAgregar">Agregar</button></th>
-        <th><button class="btnConsumir">Consumir</button></th>
-        <th><a th:href="@{/editarProducto/__${canio.codigo}__}" >Modificar</a></th>
-        
-        </tbody>
-        <tbody th:each="perfilT: ${perfilTs}">
-        <th th:text="${perfilT.codigo}" th:value="${perfilT.codigo}" class="codigoProducto"></th>
-        <th th:text="${perfilT.nombre}" th:value="${perfilT.nombre}" class="nombreProducto"></th>
-        <th th:text="${perfilT.stock}"></th>
-        <th th:text="${perfilT.sobrante}"></th>
-        <th th:text="${perfilT.ultModif}"></th>
-        <th th:text="${perfilT.cantIngresada}"></th>
-        <th th:text="${perfilT.autorUltimo}"></th>
-        <th><button class="btnAgregar">Agregar</button></th>
-        <th><button class="btnConsumir">Consumir</button></th>
-        <th><a th:href="@{/editarProducto/__${perfilT.codigo}__}" >Modificar</a></th>
-        
-        </tbody>
-    </table>
-</section>
-
-    <div id="contenedorAgregar">
-        <div id="cerrarAgregar"><img class="accion" src="/img/cerrar.png" alt="Cerrar" title="Cerrar agregar stock"></div>
-        <div id="subcontAgregar">
-            <h2>Agregar stock</h2>
-        <form action="/agregarStock" method="post" id="formAgregar">
-
-        </form>
-        </div>
-        
-    </div>
-
-    <div id="contenedorConsumir">
-        <div id="cerrarConsumir"><img class="accion" src="/img/cerrar.png" alt="Cerrar" title="Cerrar consumir stock"></div>
-        <div id="subcontConsumir">
-            <h2>Consumir stock</h2><br>
-        <form action="/consumirStock" method="post" id="formConsumir">
-
-        </form>
-        </div>
-        
-    </div>
-
-<script src="js/inicio.js"></script>
+    <h3 th:if="${error!= null}" th:text="${error}" style="color:rgb(171, 52, 5);"></h3>
+    <h3 class="mensaje" th:if="${mensaje!= null}" th:text="${mensaje}" style="color: green;"></h3>
 </body>
 </html>

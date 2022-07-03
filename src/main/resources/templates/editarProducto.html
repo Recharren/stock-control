@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1>Formulario para editar producto</h1>
-    <form action="/editarProducto" method="post">
+    <form action="/producto/editarProducto" method="post">
         <label for="nombre">Nombre</label>
         <input type="text" name="nombre" th:value="${producto.nombre}" required><br>
 
@@ -29,7 +29,7 @@
         <input type="text" name="cantIngresada" th:value="${producto.cantIngresada}" required><br>
 
         <label for="autorUltimo">Ultimo autor</label>
-        <input type="text" name="autorUltimo" th:value="${producto.autorUltimo}" required><br>
+        <input type="number" name="autorUltimo" th:value="${session.usuariosession.id}" hidden><br>
 
         <label for="stock">Stock</label>
         <input type="text" name="stock" th:value="${producto.stock}" required><br>
@@ -40,6 +40,6 @@
 
         <button type="submit">Guardar</button>
     </form>
-
+<button><a href="/moduloStock">VOLVER A STOCK</a></button>
 </body>
 </html>

@@ -22,9 +22,9 @@ public class ProductoServicio {
     //------------- Obtiene lista de productos segun categoria ---------------------
 
     public List<Producto> listadoProductos(int categ) {
-        List<Producto> Productos = productoRepositorio.obtenerProductoPorCategoria(categ);
-        if (Productos != null){
-            return Productos;
+        List<Producto> productos = productoRepositorio.obtenerProductoPorCategoria(categ);
+        if (productos != null){
+            return productos;
         } else return null;
     }
 
@@ -45,17 +45,17 @@ public class ProductoServicio {
     }
 // ---------------------- Edita un producto -----------------------------------
 
-    public void editarProducto(String nombre, Integer categoria, Integer codigo, Double precio, String autorUltimo, String sobrante, String cantIngresada, Integer stock, Date ultModif) {
+    public void editarProducto(String nombre, Integer categoria, Integer codigo, Double precio, Long autorUltimo, String sobrante, String cantIngresada, Integer stock, Date ultModif) {
         Producto producto = productoRepositorio.obtenerProductoPorCodigo(codigo);
         producto.setNombre(nombre);
         producto.setCategoria(categoria);
         producto.setCodigo(codigo);
         producto.setPrecio(precio);
-        producto.setAutorUltimo(autorUltimo);
+        producto.setAutorUltimo(usuarioRepositorio.getById(autorUltimo).getNombre());
         producto.setSobrante(sobrante);
         producto.setStock(stock);
         producto.setCantIngresada(cantIngresada);
-        producto.setUltModif(ultModif);
+        producto.setUltModif(new Date());
 
         productoRepositorio.save(producto);
 
@@ -75,6 +75,7 @@ public class ProductoServicio {
         producto.setSobrante(sobranteAgre);
         producto.setAutorUltimo(usuarioRepositorio.getById(idSesionAgre).getNombre());
         producto.setUltModif(new Date());
+        producto.setCantIngresada("+ "+cantAgre.toString());
         productoRepositorio.save(producto);
     }
 
@@ -86,6 +87,7 @@ public class ProductoServicio {
         producto.setSobrante(sobranteCons);
         producto.setAutorUltimo(usuarioRepositorio.getById(idSesionCons).getNombre());
         producto.setUltModif(new Date());
+        producto.setCantIngresada("- "+cantCons.toString());
         productoRepositorio.save(producto);
     }
 }

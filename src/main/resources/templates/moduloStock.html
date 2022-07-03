@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Stock</title>
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="/moduloStock.css">
+    <!-- <link rel="stylesheet" href="../static/normalize.css">
+    <link rel="stylesheet" href="../static/moduloStock.css"> -->
+</head>
+<body>
+<header>
+    <h1>Sistema de control de stock - GALVAMEN S.A.</h1>
+    
+    <div class="log">
+        <!-- <img th:if="${session.usuariosession.foto}!=null" id="imgUsuario"  th:src="${'/foto/usuario/'+session.usuariosession.id}" alt="usuario">
+        <img th:if="${session.usuariosession.foto}==null" id="imgUsuario"  src="/img/usuario.png" alt="usuario"> -->
+        <h2 th:if="${session.usuariosession}!=null"th:text="${session.usuariosession.nombre}"></h2><br>
+        <input type="number" id="idSesion" th:if="${session.usuariosession}!=null" th:value="${session.usuariosession.id}" hidden>
+        <a class="logout" th:href="@{/logout}" th:unless="${session.usuariosession}==null">Logout</a>
+    </div>
+
+</header>
+<a href="/producto/formularioProducto">Crear Producto nuevo</a><br>
+<a href="/usuario/registroUsuario">Registrar usuario</a>
+<section>
+    <table id="tablaPlanch">
+        <thead>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Stock</th>
+            <th>Sobrante</th>
+            <th>Fecha actualiz.</th>
+            <th>Cant. modif.</th>
+            <th>Autor modif.</th>
+        </thead>
+
+        <tbody class="tablaBody" id="bodyPlanchuelas"> 
+        </tbody>
+
+        <tbody class="tablaBody" id="bodyAngulos">
+        </tbody>
+
+        <tbody class="tablaBody" id="bodyRedondos">
+        </tbody>
+
+        <tbody class="tablaBody" id="bodyUpn">
+        </tbody>
+
+        <tbody class="tablaBody" id="bodyCanios">
+            
+        </tbody>
+
+        <tbody class="tablaBody" id="bodyPerfilT">
+        </tbody>
+
+    </table>
+</section>
+
+    <div id="contenedorAgregar">
+        <div id="cerrarAgregar"><img class="accion" src="/img/cerrar.png" alt="Cerrar" title="Cerrar agregar stock"></div>
+        <div id="subcontAgregar">
+            <h2 >Agregar stock</h2>
+        <form action="/producto/agregarStock" method="post" id="formAgregar">
+
+        </form>
+        </div>
+        
+    </div>
+
+    <div id="contenedorConsumir">
+        <div id="cerrarConsumir"><img class="accion" src="/img/cerrar.png" alt="Cerrar" title="Cerrar consumir stock"></div>
+        <div id="subcontConsumir">
+            <h2 >Consumir stock</h2><br>
+        <form action="/producto/consumirStock" method="post" id="formConsumir">
+
+        </form>
+        </div>
+        
+    </div>
+<button><a href="/inicio">INICIO</a></button>
+<script src="js/moduloStock.js"></script>
+</body>
+</html>
+
